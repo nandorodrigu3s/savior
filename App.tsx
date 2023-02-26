@@ -9,18 +9,33 @@
  */
 
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import { Container } from './src/components/atoms/container.atom.styled';
-import { AppInput } from './src/components/mols/app-input.mol';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './src/screens/login/login.screen';
+import Home from './src/screens/home/home.screen';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Container hasPadding>
-        <AppInput sideIconName={'user-circle-o'} showButton />
-        <AppInput isInputPassword sideIconName={'lock'} showButton />
-      </Container>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

@@ -7,6 +7,13 @@
       "@types/react-native-vector-icons",
       "@types/node"
     ],
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@system/*": ["./src/system/*"],
+    },
     "skipLibCheck": true
   }
 }

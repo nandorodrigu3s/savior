@@ -22,7 +22,7 @@ export const BaseTheme: IBaseTheme = {
     default: 10,
     custom: 18,
   },
-  icons: {},
+  icons: null,
   fontFamily: {
     ibmBold: 'IBMPlexSans-Bold',
     ibmMedium: 'IBMPlexSans-Medium',

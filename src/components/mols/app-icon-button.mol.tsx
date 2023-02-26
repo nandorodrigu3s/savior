@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { IconButton } from '../atoms/icon-button.atom.styled';
-import { BaseTheme } from '../../assets/theme/app-theme';
+import { IconButton } from '@components/atoms/icon-button.atom.styled';
+import { BaseTheme } from '@assets/theme/app-theme';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface AppIconButtonProps {
@@ -14,11 +14,11 @@ interface AppIconButtonProps {
 
 export const AppIconButton = (props: AppIconButtonProps) => {
   const [hidePassword, setHidePassword] = useState(true);
-  const [hidePasswordIcon, setHidePasswordIcon] = useState('eye-slash');
+  const [hidePasswordIcon, setHidePasswordIcon] = useState('eye');
 
   useEffect(() => {
-    !hidePassword && setHidePasswordIcon('eye-slash');
-    hidePassword && setHidePasswordIcon('eye');
+    !hidePassword && setHidePasswordIcon('eye');
+    hidePassword && setHidePasswordIcon('eye-slash');
   }, [hidePassword]);
 
   return props.isPassword ? (

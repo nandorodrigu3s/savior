@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { BaseTheme } from '../../assets/theme/app-theme';
-import { AppInputContainer } from '../atoms/app-input-container.atom.styled';
-import { Container } from '../atoms/container.atom.styled';
-import { Input } from '../atoms/input.atom.styled';
+import { BaseTheme } from '@assets/theme/app-theme';
+import { AppInputContainer } from '@components/atoms/app-input-container.atom.styled';
+import { Container } from '@components/atoms/container.atom.styled';
+import { Input } from '@components/atoms/input.atom.styled';
 import { AppIconButton } from './app-icon-button.mol';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface AppInputProps {
   showButton?: boolean;
-  sideIconName: string;
+  leftIconName: string;
+  rightIconName?: string;
   buttonIconName?: string;
   iconColor?: string;
   isInputPassword?: boolean;
+  onTapButton?: () => void;
 }
 
 export const AppInput = (props: AppInputProps) => {
   const [value, setValue] = useState('');
-  const [isSecureInput, setIsSecureInput] = useState(true);
+  const [isSecureInput, setIsSecureInput] = useState(props.isInputPassword);
 
   const handleText = (text: string) => {
     setValue(text);
@@ -34,7 +36,7 @@ export const AppInput = (props: AppInputProps) => {
       alignIt>
       <Container justifyCon alignIt>
         <Icon
-          name={props.sideIconName}
+          name={props.leftIconName}
           color={props.iconColor}
           size={BaseTheme.size.large}
         />
@@ -51,7 +53,11 @@ export const AppInput = (props: AppInputProps) => {
           <AppIconButton
             iconColor={props.iconColor}
             isPassword={props.isInputPassword}
-            onTapButton={() => setIsSecureInput(!isSecureInput)}
+            iconName={props.rightIconName}
+            onTapButton={() => {
+              setIsSecureInput(!isSecureInput);
+              props.onTapButton && props.onTapButton();
+            }}
           />
         )}
       </Container>
