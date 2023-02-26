@@ -14,8 +14,13 @@ const Login = () => {
   const { navigate } = useNavigation();
   return (
     <Container hasPadding justifyCon alignIt>
-      <AppInput leftIconName={'user-circle-o'} showButton />
-      <AppInput isInputPassword leftIconName={'lock'} showButton />
+      <AppInput leftIconName={'user-circle-o'} showButton size={'medium'} />
+      <AppInput
+        isInputPassword
+        leftIconName={'lock'}
+        showButton
+        size={'medium'}
+      />
       <SubmitButton
         onPress={() => navigate({ name: 'Home', params: {} } as never)}>
         <SubmitButtonText>Entrar</SubmitButtonText>

@@ -4,14 +4,20 @@ import { SubmitButton } from '@components/atoms/atm.submit-button/app-submit-but
 import { SubmitButtonText } from '@components/atoms/atm.submit-button/submit-button-text.atom.styled';
 import { useNavigation } from '@react-navigation/native';
 import { Input } from '@components/atoms/input.atom.styled';
+import { BaseTheme } from '@assets/theme/app-theme';
 
 const Home = React.memo(() => {
   const { navigate } = useNavigation();
   return (
     <Container containerHeight={100}>
-      <Container />
-      <Container noFlex hasBorder direction={'row'} containerHeight={4} justifyBetween>
-        <Input hasBorder placeholder="Cor do Cubo" inputWidth={33.3}/>
+      <Container bgColor={BaseTheme.colors.highlight} />
+      <Container
+        noFlex
+        hasBorder
+        direction={'row'}
+        containerHeight={4}
+        justifyBetween>
+        <Input hasBorder placeholder="Cor do Cubo" inputWidth={33.3} />
         <Input hasBorder placeholder="Cor do Cone" inputWidth={33.3} />
         <Input hasBorder placeholder="Cor do Dodecaedro" inputWidth={33.3} />
       </Container>

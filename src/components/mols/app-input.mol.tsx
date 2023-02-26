@@ -14,6 +14,7 @@ interface AppInputProps {
   iconColor?: string;
   isInputPassword?: boolean;
   onTapButton?: () => void;
+  size?: string;
 }
 
 export const AppInput = (props: AppInputProps) => {
@@ -48,6 +49,7 @@ export const AppInput = (props: AppInputProps) => {
           inputWidth={73}
           value={value}
           secureTextEntry={isSecureInput}
+          themeSize={props?.size}
         />
         {props.showButton && (
           <AppIconButton
