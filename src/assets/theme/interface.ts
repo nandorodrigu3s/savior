@@ -1,4 +1,4 @@
-import { IAppIcons } from '../icons';
+import { IAppIcons } from '@assets/icons';
 
 export interface IBaseTheme {
   colors: {
@@ -22,7 +22,7 @@ export interface IBaseTheme {
     default: number;
     custom: number;
   };
-  icons: IAppIcons;
+  icons: IAppIcons | null;
   fontFamily: {
     ibmBold: string;
     ibmSemiBold: string;

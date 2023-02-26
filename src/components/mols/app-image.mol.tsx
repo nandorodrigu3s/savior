@@ -1,6 +1,9 @@
 import React from 'react';
-import { Container } from '../atoms/container.atom.styled';
-import { ImageStyled, ImageStyledProps } from '../atoms/image.atom.styled';
+import { Container } from '@components/atoms/container.atom.styled';
+import {
+  ImageStyled,
+  ImageStyledProps,
+} from '@components/atoms/image.atom.styled';
 
 interface AppImageProps {
   isUri?: boolean;

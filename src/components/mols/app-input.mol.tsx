@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import { BaseTheme } from '../../assets/theme/app-theme';
-import { AppInputContainer } from '../atoms/app-input-container.atom.styled';
-import { Container } from '../atoms/container.atom.styled';
-import { Input } from '../atoms/input.atom.styled';
+import { BaseTheme } from '@assets/theme/app-theme';
+import { AppInputContainer } from '@components/atoms/app-input-container.atom.styled';
+import { Container } from '@components/atoms/container.atom.styled';
+import { Input } from '@components/atoms/input.atom.styled';
 import { AppIconButton } from './app-icon-button.mol';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface AppInputProps {
   showButton?: boolean;
-  sideIconName: string;
+  leftIconName: string;
+  rightIconName?: string;
   buttonIconName?: string;
   iconColor?: string;
   isInputPassword?: boolean;
+  onTapButton?: () => void;
+  size?: string;
 }
 
 export const AppInput = (props: AppInputProps) => {
   const [value, setValue] = useState('');
-  const [isSecureInput, setIsSecureInput] = useState(true);
+  const [isSecureInput, setIsSecureInput] = useState(props.isInputPassword);
 
   const handleText = (text: string) => {
     setValue(text);
@@ -34,8 +37,8 @@ export const AppInput = (props: AppInputProps) => {
       alignIt>
       <Container justifyCon alignIt>
         <Icon
-          name={props.sideIconName}
-          color={props.iconColor}
+          name={props.leftIconName}
+          color={props.iconColor ?? BaseTheme.colors.primary}
           size={BaseTheme.size.large}
         />
       </Container>
@@ -46,12 +49,17 @@ export const AppInput = (props: AppInputProps) => {
           inputWidth={73}
           value={value}
           secureTextEntry={isSecureInput}
+          themeSize={props?.size}
         />
         {props.showButton && (
           <AppIconButton
-            iconColor={props.iconColor}
+            iconColor={props.iconColor ?? BaseTheme.colors.primary}
             isPassword={props.isInputPassword}
-            onTapButton={() => setIsSecureInput(!isSecureInput)}
+            iconName={props.rightIconName}
+            onTapButton={() => {
+              setIsSecureInput(!isSecureInput);
+              props.onTapButton && props.onTapButton();
+            }}
           />
         )}
       </Container>
