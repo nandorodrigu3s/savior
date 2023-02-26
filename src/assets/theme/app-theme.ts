@@ -2,7 +2,7 @@ import { IBaseTheme } from './interface';
 
 export const BaseTheme: IBaseTheme = {
   colors: {
-    primary: '#006AFF',
+    primary: '#FF6830',
     secondary: '#094AEA',
     tertiary: '#005B8E',
     lightGrey: '#A3A3A3',
@@ -19,7 +19,7 @@ export const BaseTheme: IBaseTheme = {
     large: 24,
     veryLarge: 32,
     verySmall: 4,
-    default: 10,
+    default: 12,
     custom: 18,
   },
   icons: null,

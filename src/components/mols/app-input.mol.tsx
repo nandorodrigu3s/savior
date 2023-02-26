@@ -37,7 +37,7 @@ export const AppInput = (props: AppInputProps) => {
       <Container justifyCon alignIt>
         <Icon
           name={props.leftIconName}
-          color={props.iconColor}
+          color={props.iconColor ?? BaseTheme.colors.primary}
           size={BaseTheme.size.large}
         />
       </Container>
@@ -51,7 +51,7 @@ export const AppInput = (props: AppInputProps) => {
         />
         {props.showButton && (
           <AppIconButton
-            iconColor={props.iconColor}
+            iconColor={props.iconColor ?? BaseTheme.colors.primary}
             isPassword={props.isInputPassword}
             iconName={props.rightIconName}
             onTapButton={() => {

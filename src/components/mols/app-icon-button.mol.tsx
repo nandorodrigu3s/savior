@@ -30,7 +30,7 @@ export const AppIconButton = (props: AppIconButtonProps) => {
       buttonWidth={15}>
       <Icon
         name={hidePasswordIcon}
-        color={`${props.labelColor}`}
+        color={props.iconColor}
         size={BaseTheme.size.custom}
       />
     </IconButton>
@@ -40,7 +40,7 @@ export const AppIconButton = (props: AppIconButtonProps) => {
       buttonWidth={15}>
       <Icon
         name={props.iconName!}
-        color={`${props.iconColor}`}
+        color={props.iconColor}
         size={BaseTheme.size.custom}
       />
     </IconButton>
