@@ -7,12 +7,12 @@ interface InputProps {
   inputWidth?: number;
   inputHeight?: number;
   themeSize?: string;
+  pl?: number;
 }
 
 export const Input = styled.TextInput<InputProps>`
-  padding: ${props => `${props.theme.size.small}px`};
-  text-decoration: none;
-  outline: none;
+  padding: 0;
+  padding-left: ${props => (props.pl ? `${props.pl}px;` : '5px')};
   font-family: ${props => props.theme.fontFamily.interRegular};
   font-size: ${props => `${props.theme.size[props.themeSize ?? 'default']}px`};
   ${props => props.hasBorder && 'border: 1px solid black;'};
@@ -20,5 +20,5 @@ export const Input = styled.TextInput<InputProps>`
   ${props => props.hasBorderL && 'border-left-color: #CCCED9;'};
   ${props => props.radiusValue && `border-radius: ${props.radiusValue}px;`};
   ${props => props.inputWidth && `width: ${props.inputWidth}%;`};
-  ${props => props.inputHeight && `height: ${props.inputHeight}%;`};
+  ${props => props.inputHeight && `height: ${props.inputHeight}px;`};
 `;
