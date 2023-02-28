@@ -44,6 +44,7 @@ export const AppInput = (props: AppInputProps) => {
       </Container>
       <Container direction="row" justifyBetween alignIt containerWidth={75}>
         <Input
+          pl={10}
           hasBorderL
           onChangeText={handleText}
           inputWidth={73}

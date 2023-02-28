@@ -21,9 +21,12 @@ export interface ContainerProps {
   pr?: number;
   pb?: number;
   pl?: number;
+  absolute?: boolean;
+  largeBorder?: boolean;
 }
 
 export const Container = styled.View<ContainerProps>`
+  ${(props: ContainerProps) => props.absolute && 'position: absolute'};
   ${(props: ContainerProps) =>
     props.bgColor && `background-color: ${props.bgColor};`};
   ${(props: ContainerProps) =>
@@ -53,4 +56,5 @@ export const Container = styled.View<ContainerProps>`
   ${(props: ContainerProps) => props.pr && `padding-right: ${props.pr}px`};
   ${(props: ContainerProps) => props.pb && `padding-bottom: ${props.pb}px`};
   ${(props: ContainerProps) => props.pl && `padding-left: ${props.pl}px`};
+  ${props => props.largeBorder && `border: 5px solid ${props.theme.colors.dark};`};
 `;
