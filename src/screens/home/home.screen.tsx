@@ -8,7 +8,6 @@ import { Cube } from '@components/mols/mol.app-3d-objects/cube.mol';
 import { Cone } from '@components/mols/mol.app-3d-objects/cone.mol';
 import { Dodecahedron } from '@components/mols/mol.app-3d-objects/dodecaedro.mol';
 import { Home3DObjectColors } from '@system/common/interfaces';
-import { Color } from 'three';
 import { AppSubmitButton } from '@components/mols/app-submit-button.mol';
 import { StatusBar } from 'react-native';
 
