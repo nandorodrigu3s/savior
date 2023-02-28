@@ -15,6 +15,9 @@ interface AppInputProps {
   isInputPassword?: boolean;
   onTapButton?: () => void;
   size?: string;
+  externalValue?: string;
+  externalHandleChange?: any;
+  autoCap?: 'sentences' | 'words' | 'characters';
 }
 
 export const AppInput = (props: AppInputProps) => {
@@ -29,6 +32,7 @@ export const AppInput = (props: AppInputProps) => {
     <AppInputContainer
       containerHeight={50}
       margin={12}
+      mb={0}
       hasBorder
       hasRadius
       direction="row"
@@ -46,11 +50,12 @@ export const AppInput = (props: AppInputProps) => {
         <Input
           pl={10}
           hasBorderL
-          onChangeText={handleText}
-          inputWidth={73}
-          value={value}
+          onChangeText={props.externalHandleChange ?? handleText}
+          inputWidth={!props.isInputPassword ? 90 : 73}
+          value={props.externalValue ?? value}
           secureTextEntry={isSecureInput}
           themeSize={props?.size}
+          autoCapitalize={props.autoCap ?? 'none'}
         />
         {props.showButton && (
           <AppIconButton

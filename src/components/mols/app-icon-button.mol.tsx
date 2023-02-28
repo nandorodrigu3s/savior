@@ -10,6 +10,7 @@ interface AppIconButtonProps {
   iconSize?: number;
   labelColor?: string;
   onTapButton?: () => void;
+  bgColor?: string;
 }
 
 export const AppIconButton = (props: AppIconButtonProps) => {
@@ -36,6 +37,7 @@ export const AppIconButton = (props: AppIconButtonProps) => {
     </IconButton>
   ) : (
     <IconButton
+      bgColor={props.bgColor}
       onPress={() => props.onTapButton && props.onTapButton()}
       buttonWidth={15}>
       <Icon
