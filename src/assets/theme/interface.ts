@@ -1,4 +1,5 @@
 import { IAppIcons } from '@assets/icons';
+import { Home3DObjectColors } from '@system/common/interfaces';
 
 export interface IBaseTheme {
   colors: {
@@ -12,6 +13,7 @@ export interface IBaseTheme {
     dark: string;
     white: string;
     black: string;
+    threeObjects: Home3DObjectColors;
   };
   size: {
     small: number;

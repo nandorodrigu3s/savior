@@ -11,6 +11,7 @@ interface SubmitButtonProps {
   noRadius?: boolean;
   noMarginTop?: boolean;
   noMarginBottom?: boolean;
+  isDisabled?: boolean;
 }
 
 export const SubmitButton = styled.TouchableOpacity<SubmitButtonProps>`
@@ -18,7 +19,10 @@ export const SubmitButton = styled.TouchableOpacity<SubmitButtonProps>`
   ${props => !props.noMarginTop && 'margin-top: 16px;'};
   ${props => !props.noMarginBottom && 'margin-bottom: 16px;'};
   ${props => !props.noRadius && 'border-radius: 4px;'};
-  background-color: ${props => props.bgColor ?? props.theme.colors.primary};
+  background-color: ${props =>
+    props.isDisabled
+      ? props.theme.colors.lightGrey
+      : props.bgColor ?? props.theme.colors.primary};
   color: ${props => props.theme.colors.white};
   ${props => props.justifyCon && 'justify-content: center;'};
   ${props => props.alignIt && 'align-items: center;'};

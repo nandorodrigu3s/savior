@@ -12,6 +12,11 @@ export const BaseTheme: IBaseTheme = {
     dark: '#262833',
     white: '#FFF',
     black: '#000',
+    threeObjects: {
+      cube: '#f12a02',
+      cone: '#AFB500',
+      dodecahedron: '#42AE00',
+    },
   },
   size: {
     small: 8,
