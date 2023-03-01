@@ -15,6 +15,7 @@ import Login from './src/screens/login/login.screen';
 import Home from './src/screens/home/home.screen';
 import { ThemeProvider } from 'styled-components/native';
 import { BaseTheme } from '@assets/theme/app-theme';
+import FlashMessage from 'react-native-flash-message';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,7 @@ const App = () => {
             }}
           />
         </Stack.Navigator>
+        <FlashMessage position="top" />
       </ThemeProvider>
     </NavigationContainer>
   );

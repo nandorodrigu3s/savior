@@ -38,11 +38,12 @@ const Login = () => {
     cleanRequestError();
     auth()
       .signInWithEmailAndPassword(data.email, data.password)
-      .then(() => {
+      .then(credentials => {
+        console.log(credentials);
         setIsLoading(false);
         reset({
           index: 0,
-          routes: [{ name: 'Home' }],
+          routes: [{ name: 'Home', params: { email: credentials.user.email } }],
         });
         // navigate({ name: 'Home', params: {} } as never);
       })
