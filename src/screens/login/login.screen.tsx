@@ -58,7 +58,16 @@ const Login = () => {
   };
 
   return (
-    <Container bgColor={BaseTheme.colors.white} hasPadding justifyCon alignIt>
+    <Container
+      bgColor={BaseTheme.colors.white}
+      hasPadding
+      justifyCon
+      alignIt
+      accessible={true}
+      accessibilityLabel={'Tela Login'}
+      accessibilityHint={
+        'Tela inicial da aplicação, onde o usuário realiza login com suas credenciais'
+      }>
       <StatusBar
         animated={true}
         barStyle={'dark-content'}
@@ -84,8 +93,12 @@ const Login = () => {
               onChange(event);
             }}
             externalValue={value}
-            leftIconName={'user-circle-o'}
+            leftIconName={'mail'}
             size={'medium'}
+            isEntypo
+            accessible={true}
+            accessibilityLabel={'Campo email'}
+            accessibilityHint={'Campo para informar o email de acesso'}
           />
         )}
       />
@@ -106,10 +119,20 @@ const Login = () => {
             leftIconName={'lock'}
             showButton
             size={'medium'}
+            accessible={true}
+            accessibilityLabel={'Campo Senha'}
+            accessibilityHint={'Campo para informar a senha de acesso'}
           />
         )}
       />
-      <SubmitButton disabled={isLoading} onPress={handleSubmit(onLogin)}>
+      <SubmitButton
+        disabled={isLoading}
+        onPress={handleSubmit(onLogin)}
+        accessible={true}
+        accessibilityLabel={'Botão realizar login'}
+        accessibilityHint={
+          'Navega para a tela Home, caso os dados de login estejam corretos'
+        }>
         <SubmitButtonText txtCenter={isLoading}>
           {isLoading ? (
             <ActivityIndicator size={20} color={BaseTheme.colors.white} />

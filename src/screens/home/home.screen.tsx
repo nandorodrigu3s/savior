@@ -116,7 +116,14 @@ const Home = React.memo(props => {
   };
 
   return (
-    <Container containerHeight={100} largeBorder>
+    <Container
+      containerHeight={100}
+      largeBorder
+      accessible={true}
+      accessibilityLabel={'Tela HomePage'}
+      accessibilityHint={
+        'Tela principal do app, exibe três objetos 3D. Um cubo, um cone e um dodecaedro, alinhados verticalmente no centro da tela'
+      }>
       <StatusBar
         animated={true}
         barStyle={'light-content'}
@@ -157,6 +164,11 @@ const Home = React.memo(props => {
             inputWidth={33.3}
             inputHeight={26}
             autoCapitalize={'none'}
+            accessible={true}
+            accessibilityLabel={'Caixa de texto cor do Cubo'}
+            accessibilityHint={
+              'Aqui o usuário pode inserir uma cor para alterar a cor do Cubo'
+            }
           />
           <Input
             onChangeText={value => setConeColor(value)}
@@ -165,6 +177,11 @@ const Home = React.memo(props => {
             inputWidth={33.3}
             inputHeight={26}
             autoCapitalize={'none'}
+            accessible={true}
+            accessibilityLabel={'Caixa de texto cor do Cone'}
+            accessibilityHint={
+              'Aqui o usuário pode inserir uma cor para alterar a cor do Cone'
+            }
           />
           <Input
             onChangeText={value => setDodecahedronColor(value)}
@@ -173,6 +190,11 @@ const Home = React.memo(props => {
             inputWidth={33.3}
             inputHeight={26}
             autoCapitalize={'none'}
+            accessible={true}
+            accessibilityLabel={'Caixa de texto cor do Dodecaedro'}
+            accessibilityHint={
+              'Aqui o usuário pode inserir uma cor para alterar a cor do Dodecaedro'
+            }
           />
         </Container>
         <Container noFlex>
@@ -187,6 +209,11 @@ const Home = React.memo(props => {
               })
             }
             textCenter
+            accessible={true}
+            accessibilityLabel={'Botão aplicar cores'}
+            accessibilityHint={
+              'Ao clicar neste botão o usuário altera as cores dos objetos e salva esta preferência de cores'
+            }
           />
         </Container>
       </Container>

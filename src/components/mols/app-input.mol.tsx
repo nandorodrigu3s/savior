@@ -5,6 +5,7 @@ import { Container } from '@components/atoms/container.atom.styled';
 import { Input } from '@components/atoms/input.atom.styled';
 import { AppIconButton } from './app-icon-button.mol';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import EntypoIcon from 'react-native-vector-icons/Entypo';
 
 interface AppInputProps {
   showButton?: boolean;
@@ -18,6 +19,10 @@ interface AppInputProps {
   externalValue?: string;
   externalHandleChange?: any;
   autoCap?: 'sentences' | 'words' | 'characters';
+  isEntypo?: boolean;
+  accessible?: boolean;
+  accessibilityLabel?: string;
+  accessibilityHint?: string;
 }
 
 export const AppInput = (props: AppInputProps) => {
@@ -40,11 +45,19 @@ export const AppInput = (props: AppInputProps) => {
       justifyCon
       alignIt>
       <Container justifyCon alignIt>
-        <Icon
-          name={props.leftIconName}
-          color={props.iconColor ?? BaseTheme.colors.primary}
-          size={BaseTheme.size.large}
-        />
+        {props.isEntypo ? (
+          <EntypoIcon
+            name={props.leftIconName}
+            color={props.iconColor ?? BaseTheme.colors.primary}
+            size={BaseTheme.size.large}
+          />
+        ) : (
+          <Icon
+            name={props.leftIconName}
+            color={props.iconColor ?? BaseTheme.colors.primary}
+            size={BaseTheme.size.large}
+          />
+        )}
       </Container>
       <Container direction="row" justifyBetween alignIt containerWidth={75}>
         <Input
@@ -56,6 +69,9 @@ export const AppInput = (props: AppInputProps) => {
           secureTextEntry={isSecureInput}
           themeSize={props?.size}
           autoCapitalize={props.autoCap ?? 'none'}
+          accessible={props.accessible}
+          accessibilityLabel={props.accessibilityLabel}
+          accessibilityHint={props.accessibilityHint}
         />
         {props.showButton && (
           <AppIconButton

@@ -14,6 +14,9 @@ interface AppSubmitButtonProps {
   labelColor?: string;
   textCenter?: boolean;
   regularLabelStyle?: boolean;
+  accessible?: boolean;
+  accessibilityLabel?: string;
+  accessibilityHint?: string;
 }
 
 export const AppSubmitButton = (props: AppSubmitButtonProps) => {
@@ -24,7 +27,10 @@ export const AppSubmitButton = (props: AppSubmitButtonProps) => {
       buttonWidth={props?.buttonWidth ?? 100}
       noRadius={!props.hasRadius}
       bgColor={props?.bgButtonColor ?? '#EFEFEF'}
-      onPress={props.onSubmit}>
+      onPress={props.onSubmit}
+      accessible={props.accessible}
+      accessibilityLabel={props.accessibilityLabel}
+      accessibilityHint={props.accessibilityHint}>
       <SubmitButtonText
         defaultStyle={!props.isUppercase}
         color={props?.labelColor ?? '#000'}
